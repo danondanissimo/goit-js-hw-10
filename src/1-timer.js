@@ -4,7 +4,7 @@ import iziToast from 'izitoast';
 
 const startBtn = document.querySelector('[data-start]');
 const timePicker = document.querySelector('#datetime-picker');
-const timerDisplay = document.querySelector('.timer');
+
 const timerDays = document.querySelector('[data-days]');
 const timerHours = document.querySelector('[data-hours]');
 const timerMinutes = document.querySelector('[data-minutes]');
@@ -54,10 +54,12 @@ class Timer {
 const timer = new Timer(tick);
 
 startBtn.disabled = true;
+timePicker.disabled = false;
 
 startBtn.addEventListener('click', event => {
   timer.start();
   startBtn.disabled = true;
+  timePicker.disabled = true;
 });
 
 function tick({ days, hours, minutes, seconds }) {

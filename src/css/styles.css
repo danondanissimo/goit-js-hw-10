@@ -1,25 +1,94 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
-
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+body {
+  font-family: Montserrat;
+  font-style: normal;
   font-weight: 400;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+[type='text'] {
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  color: #2e2f42;
+
+  font-size: 16px;
+
+  line-height: 150%;
+  letter-spacing: 0.64px;
+  margin-right: 8px;
+  margin-bottom: 32px;
+}
+
+[type='text']:hover {
+  border-color: #000;
+}
+
+[type='text']:active {
+  border-color: #4e75ff;
+}
+
+[type='text']:disabled {
+  color: #808080;
+  border-color: #808080;
+}
+
+[type='button'] {
+  display: inline-flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: #4e75ff;
+  border-radius: 8px;
+  background: #4e75ff;
+  color: #fff;
+  font-size: 16px;
+
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+}
+
+[type='button']:disabled,
+[type='button']:disabled:hover {
+  color: #989898;
+  background: #cfcfcf;
+  border-color: #cfcfcf;
+}
+
+[type='button']:hover {
+  background: #6c8cff;
+  border-color: #6c8cff;
+  cursor: pointer;
+}
+
+.timer {
+  display: flex;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field:not(:last-child) {
+  margin-right: 24px;
+}
+
+.label {
+  color: #2e2f42;
+  font-size: 16px;
+
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.value {
+  color: #2e2f42;
+  font-size: 40px;
+
+  line-height: 120%;
+  letter-spacing: 1.6px;
 }
