@@ -31,7 +31,7 @@ form.addEventListener('submit', event => {
 function createPromise(delay, state) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (form.elements.state.value === 'fulfilled') {
+      if (state === 'fulfilled') {
         resolve(delay);
       } else {
         reject(delay);
