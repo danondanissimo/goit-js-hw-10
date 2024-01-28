@@ -117,6 +117,7 @@ legend {
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 16px;
+  margin-top: 8px;
 }
 
 [type='number']:hover,
