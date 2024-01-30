@@ -83,10 +83,10 @@ const timer = new Timer(tick);
 
 startBtn.disabled = true;
 
-// startBtn.addEventListener('click', event => {
-//   timer.start();
-//   startBtn.disabled = true;
-// });
+startBtn.addEventListener('click', event => {
+  timer.start();
+  startBtn.disabled = true;
+});
 
 function tick({ days, hours, minutes, seconds }) {
   timerDays.textContent = addZero(days);
