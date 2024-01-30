@@ -44,7 +44,7 @@ class Timer {
         second: addZero(0),
       };
       if (JSON.stringify(currentPeriod) === JSON.stringify(itIsTimeToStop)) {
-        console.log('Stop');
+        // console.log('Stop');
         this.stop();
       }
     }, 1000);
@@ -75,7 +75,7 @@ class Timer {
 }
 
 timePicker.addEventListener('input', () => {
-  console.log('Stop');
+  // console.log('Stop');
   timer.stop();
 });
 
@@ -83,10 +83,10 @@ const timer = new Timer(tick);
 
 startBtn.disabled = true;
 
-startBtn.addEventListener('click', event => {
-  timer.start();
-  startBtn.disabled = true;
-});
+// startBtn.addEventListener('click', event => {
+//   timer.start();
+//   startBtn.disabled = true;
+// });
 
 function tick({ days, hours, minutes, seconds }) {
   timerDays.textContent = addZero(days);
