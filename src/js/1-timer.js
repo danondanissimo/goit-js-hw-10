@@ -25,12 +25,33 @@ class Timer {
     this.initTime = Date.now();
     console.log(this.initTime);
 
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       const current = Date.now();
       const diff = destinationDate - current;
       const timeObj = this.convertMs(diff);
       this.tick(timeObj);
+      const currentPeriod = {
+        day: timerDays.textContent,
+        hour: timerHours.textContent,
+        minute: timerMinutes.textContent,
+        second: timerSeconds.textContent,
+      };
+
+      const itIsTimeToStop = {
+        day: addZero(0),
+        hour: addZero(0),
+        minute: addZero(0),
+        second: addZero(0),
+      };
+      if (JSON.stringify(currentPeriod) === JSON.stringify(itIsTimeToStop)) {
+        console.log('Stop');
+        this.stop();
+      }
     }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.intervalId);
   }
 
   convertMs(ms) {
@@ -53,15 +74,18 @@ class Timer {
   }
 }
 
+timePicker.addEventListener('input', () => {
+  console.log('Stop');
+  timer.stop();
+});
+
 const timer = new Timer(tick);
 
 startBtn.disabled = true;
-timePicker.disabled = false;
 
 startBtn.addEventListener('click', event => {
   timer.start();
   startBtn.disabled = true;
-  timePicker.disabled = true;
 });
 
 function tick({ days, hours, minutes, seconds }) {
@@ -81,9 +105,9 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log('I am Mr Meseeks, look at meeee');
     destinationDate = selectedDates[0].getTime();
     if (destinationDate < Date.now()) {
+      timer.stop();
       iziToast.show({
         title: 'Hey',
         message: 'Please choose a date in the future',
@@ -101,3 +125,5 @@ flatpickr(timePicker, options);
 // console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+
+console.log(timerSeconds.value);
