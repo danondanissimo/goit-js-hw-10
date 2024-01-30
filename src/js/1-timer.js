@@ -83,7 +83,7 @@ const timer = new Timer(tick);
 
 startBtn.disabled = true;
 
-startBtn.addEventListener('click', event => {
+startBtn.addEventListener('click', () => {
   timer.start();
   startBtn.disabled = true;
 });
