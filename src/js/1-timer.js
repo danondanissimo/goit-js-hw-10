@@ -74,10 +74,10 @@ class Timer {
   }
 }
 
-timePicker.addEventListener('input', () => {
-  // console.log('Stop');
-  timer.stop();
-});
+// timePicker.addEventListener('input', () => {
+//   // console.log('Stop');
+//   timer.stop();
+// });
 
 const timer = new Timer(tick);
 
@@ -86,6 +86,7 @@ startBtn.disabled = true;
 startBtn.addEventListener('click', () => {
   timer.start();
   startBtn.disabled = true;
+  timePicker.disabled = true;
 });
 
 function tick({ days, hours, minutes, seconds }) {
@@ -107,7 +108,7 @@ const options = {
   onClose(selectedDates) {
     destinationDate = selectedDates[0].getTime();
     if (destinationDate < Date.now()) {
-      timer.stop();
+      // timer.stop();
       iziToast.show({
         title: 'Hey',
         message: 'Please choose a date in the future',
